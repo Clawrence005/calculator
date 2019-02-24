@@ -5,28 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <title>Document</title>
-
+    <title>Calculator</title>
+    <style type="css">
+        .main-content{display: flex; width: 25%; background-color: lightblue}
+        #result-area{background-color: black; color: white}
+</style>
 </head>
 
 <body>
-    <div class='main-content' style="background-color: lightblue">
-        <div>result</div>
-        <button id="button-1">1</button>
-        <button id="button-2">2</button>
-        <button id="button-3">3</button>
-        <button id="button-4">4</button>
-        <button id="button-5">5</button>
-        <button id="button-6">6</button>
-        <button id="button-7">7</button>
-        <button id="button-8">8</button>
-        <button id="button-9">9</button>
-        <button id="button-plus">+</button>
-        <button id="button-minus">-</button>
-        <button id="button-times">&times</button>
-        <button id="button-divide">&divide</button>
-        <button id="button-submit">submit</button>
+    <div class='main-content' style="display: flexbox; width: 25%; background-color: lightblue">
+        <div id="result-area">result</div>
+        <button id="button-1" class="number-button">1</button>
+        <button id="button-2" class="number-button">2</button>
+        <button id="button-3" class="number-button">3</button>
+        <button id="button-4" class="number-button">4</button>
+        <button id="button-5" class="number-button">5</button>
+        <button id="button-6" class="number-button">6</button>
+        <button id="button-7" class="number-button">7</button>
+        <button id="button-8" class="number-button">8</button>
+        <button id="button-9" class="number-button">9</button>
+        <button id="button-plus" class="operator-button">+</button>
+        <button id="button-minus" class="operator-button">-</button>
+        <button id="button-times" class="operator-button">&times</button>
+        <button id="button-divide" class="operator-button">&divide</button>
+        <button id="equals-button" class="submit">=</button>
+        <button id="clear-button" class="clear">clear</button>
     </div>
 
 
@@ -36,35 +42,72 @@
 
     <script type="text/javascript">
 
-        function calculator(operator, number1, number2) {
-            var result = "not recognized command";
-            if (operator === "add" || operator === "+") {
-                result = add(number1, number2);
-            }
-            else if (operator === "subtract" || operator === "-") {
-                result = subtract(number1, number2);
-            }
-            else if (operator === "multiply" || operator === "*") {
-                result = multiply(number1, number2);
-            }
-            else if (operator === 'divide' || operator === '/') {
-                result = divide(number1, number2);
-            }
-            return result;
-        }
+        $(document).ready(function () {
 
-        function add(a, b) {
-            return parseFloat(a) + parseFloat(b);
-        }
-        function subtract(a, b) {
-            return parseFloat(a) - parseFloat(b);
-        }
-        function multiply(a, b) {
-            return parseFloat(a) * parseFloat(b);
-        }
-        function divide(a, b) {
-            return parseFloat(a) / parseFloat(b);
-        }
+            number1 = "";
+            number2 = "";
+            operator = "";
+            var isOperatorChosen = false;
+            var readyToCalculate = false;
+            ///// first check to see if a first number has been chosen
+            // $('.')
+
+
+            ///// then check to see if only one operator has been chosen
+
+
+            //// check to see if second number has been chosen
+
+
+            //if all three have been chosen set readyToCalculate to true
+
+            //reset function to clear everthing
+            if (!number1 || readyToCalculate) {
+                return false;
+            }
+            /////// Calculator
+            // if readyToCalculate then calculate
+
+            function calculator(operator, number1, number2) {
+                var result = "not recognized command";
+                if (operator === "add" || operator === "+") {
+                    result = add(number1, number2);
+                }
+                else if (operator === "subtract" || operator === "-") {
+                    result = subtract(number1, number2);
+                }
+                else if (operator === "multiply" || operator === "*") {
+                    result = multiply(number1, number2);
+                }
+                else if (operator === 'divide' || operator === '/') {
+                    result = divide(number1, number2);
+                }
+                return result;
+            }
+
+            function add(a, b) {
+                return parseFloat(a) + parseFloat(b);
+            }
+            function subtract(a, b) {
+                return parseFloat(a) - parseFloat(b);
+            }
+            function multiply(a, b) {
+                return parseFloat(a) * parseFloat(b);
+            }
+            function divide(a, b) {
+                return parseFloat(a) / parseFloat(b);
+            }
+
+
+            ///////// clear but resets
+            $('.clear').on('click', function () {
+                intializeCalculator();
+            })
+
+
+        });
+        /////// call the calculator to intialize
+        // intializeCalculator()
     </script>
 </body>
 
