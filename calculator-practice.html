@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class='main-content' style="background-color: lightblue">
+        <div>result</div>
+        <button id="button-1">1</button>
+        <button id="button-2">2</button>
+        <button id="button-3">3</button>
+        <button id="button-4">4</button>
+        <button id="button-5">5</button>
+        <button id="button-6">6</button>
+        <button id="button-7">7</button>
+        <button id="button-8">8</button>
+        <button id="button-9">9</button>
+        <button id="button-plus">+</button>
+        <button id="button-minus">-</button>
+        <button id="button-times">&times</button>
+        <button id="button-divide">&divide</button>
+        <button id="button-submit">submit</button>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+
+        function calculator(operator, number1, number2) {
+            var result = "not recognized command";
+            if (operator === "add" || operator === "+") {
+                result = add(number1, number2);
+            }
+            else if (operator === "subtract" || operator === "-") {
+                result = subtract(number1, number2);
+            }
+            else if (operator === "multiply" || operator === "*") {
+                result = multiply(number1, number2);
+            }
+            else if (operator === 'divide' || operator === '/') {
+                result = divide(number1, number2);
+            }
+            return result;
+        }
+
+        function add(a, b) {
+            return parseFloat(a) + parseFloat(b);
+        }
+        function subtract(a, b) {
+            return parseFloat(a) - parseFloat(b);
+        }
+        function multiply(a, b) {
+            return parseFloat(a) * parseFloat(b);
+        }
+        function divide(a, b) {
+            return parseFloat(a) / parseFloat(b);
+        }
+    </script>
+</body>
+
+</html>
